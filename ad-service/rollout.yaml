@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: ad-service
-        image: govindk123/ad-service:6
+        image: govindk123/ad-service:7
         ports:
         - containerPort: 80
         resources:
