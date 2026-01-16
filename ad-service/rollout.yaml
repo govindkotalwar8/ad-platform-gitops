@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: ad-service
-        image: nginx:1.25-alpine
+        image: govindk123/ad-service:4
         ports:
         - containerPort: 80
         resources:
