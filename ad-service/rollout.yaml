@@ -1,10 +1,11 @@
-apiVersion: apps/v1
-kind: Deployment
+apiVersion: argoproj.io/v1alpha1
+kind: Rollout
 metadata:
   name: ad-service
   namespace: ads
 spec:
   replicas: 2
+  revisionHistoryLimit: 2
   selector:
     matchLabels:
       app: ad-service
@@ -18,3 +19,9 @@ spec:
         image: nginx:1.25-alpine
         ports:
         - containerPort: 80
+
+  strategy:
+    blueGreen:
+      activeService: ad-service
+      previewService: ad-service-preview
+      autoPromotionEnabled: true
